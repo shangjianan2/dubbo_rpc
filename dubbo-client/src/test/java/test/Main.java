@@ -5,7 +5,7 @@ public class Main {
         for (int i = 0; i < 10; ++i) {
             Thread.sleep(1000);
             System.out.println(i);
-            if (i > 3) {
+            if (i > 3)  {
                 break;
             }
         }
