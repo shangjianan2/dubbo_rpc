@@ -30,7 +30,19 @@ public class Consumer {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/consumer.xml");
         context.start();
         DemoService demoService = context.getBean("demoService", DemoService.class);
-        String hello = demoService.sayHello("world");
-        logger.info("\r\n\r\n\r\nresult: " + hello);
+//        String hello = demoService.sayHello("world");
+//        logger.info("\r\n\r\n\r\nresult: " + hello);
+        for (int i = 0; i < 1000; ++i) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(i);
+            if (i == 5) {
+                String hello = demoService.sayHello("world");
+                logger.info("\r\n\r\n\r\nresult: " + hello);
+            }
+        }
     }
 }
